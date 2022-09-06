@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <h1 id="date"></h1>
+            <div class="day" id="day"></div>
+            <div class="tasks">할 일 2개 남음</div>
+        </header>
+
+        <section class="tasks_area">
+            <!-- 탭 -->
+            <ul class="tab_list">
+                <li id="line"></li>
+                <li>All</li>
+                <li>not Done</li>
+                <li>Done</li>
+            </ul>
+            <!-- 할일 -->
+            <div class="tasks_box" id="tasks_box"></div>
+            <!-- 할일추가 -->
+            <div id="add_tasks_box">
+                <div>
+                    <input type="text" id="input_task" placeholder="오늘의 할일은?">
+                    <button id="add">add</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="add_btn"></div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
