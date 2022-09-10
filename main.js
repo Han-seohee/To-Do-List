@@ -1,9 +1,7 @@
 //notDone, Done일 때 삭제하기
-//enter
 //빈칸일때 추가 안되게하기
 //체크시 삭제 가능하게하기
 //all, done일때 할일 n개 남음 설정 (체크, 삭제)
-// 언더라인 애니메이션
 
 let addBtn = document.getElementById('add_btn');
 let toggle = false;
@@ -28,9 +26,15 @@ const dayName = today.toLocaleDateString('ko-KR', {
 });
 console.log(dateString);
 
-// 클릭 이벤트
+//이벤트
 addBtn.addEventListener("click", addTasksBox);
 add.addEventListener("click", addTask);
+
+taskInput.addEventListener("keyup", function(event){
+    if(event.keyCode === 13){
+        addTask(event);
+    }
+})
 
 for(let i=1; i<tabs.length; i++){
     tabs[i].addEventListener("click", function(event){
@@ -50,17 +54,20 @@ function daySetting() {
 daySetting();
 
 // 탭
-function filter(event) {
-    console.log("filter click", event.target.id);
-    mode=event.target.id;
-    filterList=[];
+function filter(e) {
+    if(e) {
+    mode = e.target.id;
+    // console.log("filter click", e.target.id);
 
     document.getElementById('line').style.width = 
-        event.target.offsetWidth + "px";
+        e.target.offsetWidth + "px";
     document.getElementById('line').style.top = 
-        event.target.offsetTop + event.target.offsetHeight + "px";
+        e.target.offsetTop + e.target.offsetHeight - 3 +"px";
     document.getElementById('line').style.left = 
-        event.target.offsetLeft + "px";
+        e.target.offsetLeft + "px";
+    }
+    
+    filterList = [];
 
     if(mode == "all") {
         render();
@@ -113,14 +120,15 @@ function addTask() {
 
 // 렌더
 function render(){
+    let resultHTML = '';
     let list = [];
+
     if(mode == "all"){
         list = taskList;
-    } else if (mode == "notDone" || mode == "done") {
+    } else {
         list = filterList;
     }
-
-    let resultHTML = '';
+    
     for(let i=0; i<list.length; i++){
         if(list[i].isComplete == true) {
             resultHTML += `<div class="task">
@@ -140,7 +148,8 @@ function render(){
     </div>`;
         }
     }
-    tasks.textContent = `할 일 ${taskList.length}개 남음`;
+
+    tasks.textContent = `할 일 ${taskList.length}개`;
     document.getElementById('tasks_box').innerHTML = resultHTML;
 }
 
@@ -152,7 +161,7 @@ function toggleCheck(id) {
             break;
         }
     }
-    render();
+    filter();
 }
 
 //삭제
@@ -164,7 +173,7 @@ function deleteTask(id) {
         }
     }
     console.log(taskList)
-    render();
+    filter();
 }
 
 // 랜덤아이디 생성
