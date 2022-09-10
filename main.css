@@ -1,10 +1,4 @@
 @font-face {
-    font-family: 'SEBANG_Gothic_bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
     font-family: 'MICEGothic Bold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
     font-weight: 700;
@@ -19,7 +13,8 @@ li {
 }
 .wrap {
     width: 95%;
-    height: 600px;
+    max-width: 500px;
+    height: 700px;
     margin: 20px auto;
     box-shadow: 0 0 8px rgba(0,0,0, 0.2);
     position: relative;
@@ -32,7 +27,6 @@ li {
 .header {
     width: 90%;
     margin: 0 auto 20px;
-    /* background-color: dodgerblue; */
     padding-top: 20px;
     font-size: 18px;
 }
@@ -40,13 +34,13 @@ li {
     margin-bottom: 5px;
 }
 .header .day {
-    color: #666;
+    color: #343434;
     font-size: 16px;
     margin-bottom: 30px;
 }
 .header #tasks {
     font-size: 16px;
-    color: #EB5353;
+    color: #446A46;
 }
 
 
@@ -57,7 +51,7 @@ li {
 }
 .tab_list {
     display: flex;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid #446A46;
     position: relative;
     margin-bottom: 15px;
 }
@@ -67,12 +61,13 @@ li {
 }
 #line {
     height: 4px;
-    background-color: #EB5353;
+    background-color: #446A46;
     position: absolute;
     width: 70px;
     left: 0;
     top: 48px;
     padding: 0;
+    transition: 0.5s;
 }
 
 .task {
@@ -85,15 +80,33 @@ li {
     box-sizing: border-box;
 }
 .task_done {
-    color: gray;
+    color: lightgray;
     text-decoration: line-through;
 }
 .check {
     width: 32px;
     height: 32px;
     border-radius: 16px;
-    border: 1px solid lightgray;
+    border: none;
+    background-color: transparent;
     margin-right: 20px;
+    text-indent: -9999px;
+    background-image: url(images/check.png);
+    background-size: 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.delete {
+    width: 24px;
+    height: 24px;
+    text-indent: -9999px;
+    border: none;
+    background-color: transparent;
+    background-image: url(images/delete.png);
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 5px;
 }
 .btns {
     display: flex;
@@ -108,7 +121,7 @@ li {
     box-sizing: border-box;
     padding: 30px 20px 100px;
     background-color: #fff;
-    border-top: 1px solid #EB5353;
+    border-top: 1px solid #446A46;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
     display: none;
@@ -147,7 +160,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #EB5353;
+    background-color: #446A46;
     position: absolute;
     left: 50%;
     bottom: 0;
