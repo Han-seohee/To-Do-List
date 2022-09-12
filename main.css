@@ -95,6 +95,7 @@ li {
     background-size: 32px;
     background-position: center;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 .delete {
     width: 24px;
@@ -107,6 +108,7 @@ li {
     background-position: center;
     background-repeat: no-repeat;
     margin-top: 5px;
+    cursor: pointer;
 }
 .btns {
     display: flex;
@@ -170,6 +172,7 @@ li {
     background-position: center;
     background-size: 60px;
     transition: 0.125s all ease-in;
+    cursor: pointer;
 }
 
 .add_btn_toggle {
